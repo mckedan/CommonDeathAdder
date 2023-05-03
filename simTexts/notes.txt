@@ -1,0 +1,1 @@
+was going to have different controls outputs print different files, but way too many combinations for that strategy, so I'll use loops to print different amounts of dashes. This will be in the simIO file
