@@ -9,17 +9,17 @@ different options and see statuses, (and check feedbacks?)
 
 Currently the only way to end the program is ctrl+c
 
-Author:
-DJM
 Date:
 4/28/2023
 
 TODO:
-*Make menu able to be called more than once
-*Make pressing q/m lead to desired functions
-*Add in Control Outputs
-*Make calculation for Control Outputs (throttle*dir +/- bias
-*Make ASCII output prints for simulation testing
+Make opening the menu an option
+TODO:
+Add in Control Outputs
+TODO:
+Make calculation for Control Outputs (throttle*dir +/- bias)
+TODO:
+Make simulation mode which reads input same way, and uses simOuts to display behavior
 """
 import keyboard
 import mouse

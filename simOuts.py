@@ -2,6 +2,13 @@
 This will be used to print different text displays to the standard output depending on what inputs
 are read. For simulation only.
 
+TODO:
+Make this print text depending on what OP is received as argument.
+May need to add methods to do this, and receive different/multiple parameters.
+Need to make this return instead of print. Probably.
+Currently it is set up as returning a single string for a single output, so would need
+to be called twice (1 for left and 1 for right) by move method. May want to change this.
+
 Date:
 4/30/23
 """

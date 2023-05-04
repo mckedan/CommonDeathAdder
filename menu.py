@@ -1,6 +1,14 @@
 """
-This is the menu, which will eventually let you choose between autonomous routines and
-telecom control, see current status of signals, and safely shut down the robot.
+This is the menu, which will eventually let you choose between operator control modes,
+choose different autonomous routines to run (eventually), safely shut down the robot, etc.
+
+The menu is launched initially, and should include options to start and stop operator control
+of the robot. Pressing shit+m while driving the robot will pause robot movement and reopen the menu.
+
+TODO:
+Make menu keys reliably working
+TODO:
+Make move command call bot's move method
 
 Date:
 4/30/23
