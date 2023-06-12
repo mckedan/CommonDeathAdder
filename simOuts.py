@@ -1,21 +1,19 @@
 """
-This will be used to print different text displays to the standard output depending on what inputs
+This will be used to print displays to the standard output depending on what inputs
 are read. For simulation only.
 
+
 TODO:
-Make this print text depending on what OP is received as argument.
-May need to add methods to do this, and receive different/multiple parameters.
-Need to make this return instead of print. Probably.
-Currently it is set up as returning a single string for a single output, so would need
-to be called twice (1 for left and 1 for right) by move method. May want to change this.
+Incorporate equation with updating graph
+Figure out actual equation
 
 Date:
-4/30/23
+6/12/23
 """
 import math
 
+""" Old idea, not best one.
 OP = 5.3
-
 def simO(OP):
     if OP > 0.9:
         print('-')
@@ -26,6 +24,32 @@ def simO(OP):
         print('-')
     
     print('_')
+return 0
+"""
+
+#width of the bot in inches
+w_bot = 24
+t = 1 #how do we determine the length of a timestep?
+
+def simVels(x0, y0, omegaL, omegaR):
+    sL = omegaL*t #t is ideally an actual time step, placeholder for now
+    sR = omegaR*t
     
+    RgtL = sL > sR
     
-#Am drunk and idk if this works, I want it to print '-' on a new line ceil(OP) times, then print '_' at the end, also on a new line. Have not tested at all. Am drunk. Signing out.
+    if(RgtL):
+        rL = w_bot * sL / (sR - sL)
+        rR = w_bot + rL
+    else:
+        rL = -w_bot * sL / (sR - sL)
+        rR = -w_bot + rL
+    
+    r = (rL+rR) / 2
+    theta = (sL/rL + sR/rL)/2 #it feels better to take the average of theta calculated from right side and theta calculated from left side. Not sure why.
+    
+    xStep = math.cos(theta)*r
+    yStep = math.sin(theta)*rL
+    
+    return [xStep, yStep]
+
+print(simVels(0,0,24,48))
