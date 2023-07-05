@@ -23,34 +23,22 @@ Make simulation mode which reads input same way, and uses simOuts to display beh
 """
 import keyboard
 import mouse
-#import menu #this is a way to call this file, I cant get it to work
 
-g_straight = open('simTexts/0.txt', 'r').read()
+#g_straight = open('simTexts/0.txt', 'r').read()
 
-def open_menu():
-    menu.__main__()
-#exec(open('menu.py').read()) #this is supposed to be one method
-#menu.<function()> should be another method, but I want to run the file, not call a function from it. We could also use __main__ function to run it; figure that output
-#There might be another way to do it with importing the file thorugh a similar way to g_straight, not sure.
-    
+exitToMain = False
+
 def move():
     #Throttle will reset to 0 when entering the move mode
     throttle = 0
+    
     print("throttle = 0, entering while")
     
     while True:
+        keyboard.add_hotkey('shift+m', setExitTrue())
+        
         mevents = []
         mouse.hook(mevents.append)
-        """
-        if keyboard.is_pressed('w'):
-            print(g_straight)
-        if keyboard.is_pressed('s'):
-            print('s')
-        if keyboard.is_pressed('a'):
-            print('a')
-        if keyboard.is_pressed('d'):
-            print('d')
-        """
         
         mouse.unhook(mevents.append)
         if(len(mevents) != 0):
@@ -63,7 +51,9 @@ def move():
                 throttle += sum(scrs)#/len(scrs)#sum should be used to capture entire range of mouse scroll, not just the average of the movement. This makes it less jerky, obviously.
                 print(throttle)
         
+        if(exitToMain):
+            break
 
-keyboard.add_hotkey('shift+m', open_menu)
-
-move()
+def setExitTrue():
+    print('Exit bool set true')
+    exitToMain = True
