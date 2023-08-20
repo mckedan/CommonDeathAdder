@@ -5,13 +5,11 @@ choose different autonomous routines to run (eventually), safely shut down the r
 The menu is launched initially, and should include options to start and stop operator control
 of the robot. Pressing shit+m while driving the robot will pause robot movement and reopen the menu.
 
-TODO:
-Make move command call bot's move method
-
 Date:
 4/30/23
 """
 import keyboard
+import mouse
 import sys
 from bot import move
 

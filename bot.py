@@ -22,7 +22,7 @@ TODO:
 Make simulation mode which reads input same way, and uses simOuts to display behavior
 """
 import keyboard
-import mouse
+#import mouse
 
 #g_straight = open('simTexts/0.txt', 'r').read()
 
@@ -52,6 +52,7 @@ def move():
                 print(throttle)
         
         if(exitToMain):
+            print('breeaking!')
             break
 
 def setExitTrue():
