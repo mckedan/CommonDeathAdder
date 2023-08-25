@@ -15,3 +15,6 @@ class SimBot:
     
     def move(self, omegaL, omegaR, tStep):
         return sim.simPos(self.x, self.y, self.theta, omegaL, omegaR, tStep)
+        
+    def currPos(self):
+        return [self.x, self.y, self.theta]

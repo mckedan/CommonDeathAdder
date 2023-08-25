@@ -3,12 +3,13 @@ import math
 
 sBot = SimBot(0,0,math.pi/2)
 
-steps = [0,0,0] #need to make this a list of a 3 index array, not a 3 index array
+steps = []
 
-for i in range(3):#And have this iterate through the LIST
-    #print(i)
-    steps[i] = sBot.move(2, 2, math.pi/2)
-    continue
+for i in range(3):
+    print("Pre-Step", i, ":", sBot.currPos())
+    steps.append(sBot.move(2, 2, math.pi/2))
+    print("Post-Step", i, ":", sBot.currPos())
 
-for i in steps:
-    print(steps)
+print(steps)
+
+#Looks like sBot object isn't being updated but its output is being stored in the array -- need to update global variable in sBot object when move method is run
